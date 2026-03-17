@@ -1,0 +1,48 @@
+# ── DEPENDENCIES ──
+node_modules/
+
+# ── ENVIRONMENT VARIABLES ──
+.env
+.env.local
+.env.development
+.env.production
+
+# ── BUILD OUTPUT ──
+/frontend/build
+/frontend/dist
+
+# ── LOGS ──
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── OS FILES ──
+.DS_Store
+Thumbs.db
+
+# ── EDITOR / IDE ──
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ── REACT / CRA ──
+/frontend/.pnp
+/frontend/.pnp.js
+/frontend/coverage
+
+# ── MYSQL DUMPS (sensitive) ──
+*.sql.bak
+*.dump
+
+# ── UPLOADS (user uploaded files) ──
+/backend/uploads/
+
+# ── MISC ──
+*.zip
+*.tar.gz
+.cache/
