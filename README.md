@@ -1,5 +1,6 @@
 # How the project will look like
 
+```text
 /wise-web-warriors
 │
 ├── /docs
@@ -155,3 +156,4 @@
 ├── .gitignore
 ├── README.md
 └── INSTALL.md
+```
