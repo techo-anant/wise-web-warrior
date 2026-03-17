@@ -9,7 +9,7 @@
 │   ├── /user                      # End-user how-to guide
 │   └── INSTALL.md                 # Installation instructions
 │
-├── /frontend                      # React App
+├── /frontend                      # React App (Create React App)
 │   ├── /public
 │   │   ├── favicon.ico
 │   │   ├── robots.txt             # SEO
@@ -18,7 +18,11 @@
 │   ├── /src
 │   │   ├── /assets
 │   │   │   ├── /images
+│   │   │   │   ├── /cars          # Car listing images
+│   │   │   │   ├── /banners       # Hero/promotional banners
+│   │   │   │   └── /logos
 │   │   │   ├── /videos
+│   │   │   │   └── /car-tours     # Car walkthrough videos
 │   │   │   └── /fonts
 │   │   │
 │   │   ├── /components
@@ -30,35 +34,46 @@
 │   │   │   ├── /ui
 │   │   │   │   ├── Button.jsx
 │   │   │   │   ├── Modal.jsx
-│   │   │   │   ├── SearchBar.jsx
+│   │   │   │   ├── SearchBar.jsx      # Search by make/model/year
+│   │   │   │   ├── FilterPanel.jsx    # Filter by price, mileage etc.
+│   │   │   │   ├── PriceRangeSlider.jsx
 │   │   │   │   └── ThemeSwitcher.jsx  # 3-theme switcher
+│   │   │   ├── /cars
+│   │   │   │   ├── CarCard.jsx        # Car listing card
+│   │   │   │   ├── CarGrid.jsx        # Grid of CarCards
+│   │   │   │   ├── CarImageGallery.jsx
+│   │   │   │   ├── CarSpecs.jsx       # Engine, mileage, year etc.
+│   │   │   │   ├── CarBadge.jsx       # New / Used / Featured
+│   │   │   │   └── CarComparison.jsx  # Side-by-side compare
 │   │   │   ├── /media
-│   │   │   │   ├── VideoPlayer.jsx
+│   │   │   │   ├── VideoPlayer.jsx    # Car tour videos
 │   │   │   │   └── ImageGallery.jsx
 │   │   │   ├── /map
-│   │   │   │   └── InteractiveMap.jsx # Leaflet.js
+│   │   │   │   └── DealershipMap.jsx  # Leaflet.js dealership locator
 │   │   │   └── /charts
-│   │   │       └── DataChart.jsx      # Recharts / Chart.js
+│   │   │       ├── PriceHistoryChart.jsx   # Car price trends
+│   │   │       └── InventoryChart.jsx      # Stock by category
 │   │   │
 │   │   ├── /pages
 │   │   │   ├── /static              # ── STATIC PAGES (5+) ──
-│   │   │   │   ├── Home.jsx
-│   │   │   │   ├── About.jsx
-│   │   │   │   ├── Contact.jsx
-│   │   │   │   ├── FAQ.jsx
-│   │   │   │   └── NotFound.jsx
+│   │   │   │   ├── Home.jsx           # Hero + featured cars
+│   │   │   │   ├── About.jsx          # About the dealership
+│   │   │   │   ├── Contact.jsx        # Contact + dealership map
+│   │   │   │   ├── FAQ.jsx            # Buying/financing FAQ
+│   │   │   │   └── NotFound.jsx       # 404
 │   │   │   │
 │   │   │   ├── /dynamic             # ── DYNAMIC PAGES (10+) ──
-│   │   │   │   ├── Products.jsx
-│   │   │   │   ├── ProductDetail.jsx
-│   │   │   │   ├── Search.jsx
-│   │   │   │   ├── Blog.jsx
-│   │   │   │   ├── BlogPost.jsx
-│   │   │   │   ├── Category.jsx
-│   │   │   │   ├── MapPage.jsx
-│   │   │   │   ├── Dashboard.jsx      # Private
-│   │   │   │   ├── Profile.jsx        # Private
-│   │   │   │   └── Notifications.jsx  # Private
+│   │   │   │   ├── Inventory.jsx      # All car listings (DB-driven)
+│   │   │   │   ├── CarDetail.jsx      # Single car + gallery + video
+│   │   │   │   ├── Search.jsx         # Search results
+│   │   │   │   ├── Compare.jsx        # Compare selected cars
+│   │   │   │   ├── Category.jsx       # SUV / Sedan / Truck etc.
+│   │   │   │   ├── DealerLocator.jsx  # Interactive map page
+│   │   │   │   ├── Financing.jsx      # Loan calculator (dynamic)
+│   │   │   │   ├── Dashboard.jsx      # User saved cars (private)
+│   │   │   │   ├── Profile.jsx        # User profile (private)
+│   │   │   │   ├── SavedCars.jsx      # Wishlist (private)
+│   │   │   │   └── Notifications.jsx  # Price drop alerts (private)
 │   │   │   │
 │   │   │   ├── /auth
 │   │   │   │   ├── Login.jsx
@@ -67,91 +82,95 @@
 │   │   │   │
 │   │   │   └── /admin               # ── ADMIN INTERFACE ──
 │   │   │       ├── AdminDashboard.jsx
-│   │   │       ├── RecordEditor.jsx   # Edit products/services
-│   │   │       ├── UserManager.jsx    # Disable/manage accounts
-│   │   │       ├── ThemeManager.jsx   # Switch site templates
-│   │   │       └── Monitor.jsx        # Service status page
+│   │   │       ├── CarListingEditor.jsx   # Add/edit/delete cars
+│   │   │       ├── UserManager.jsx        # Disable/manage accounts
+│   │   │       ├── ThemeManager.jsx       # Switch site templates
+│   │   │       └── Monitor.jsx            # Service status page
 │   │   │
 │   │   ├── /themes
-│   │   │   ├── theme-default.css
-│   │   │   ├── theme-dark.css
-│   │   │   └── theme-light.css
+│   │   │   ├── theme-default.css    # Classic dealership look
+│   │   │   ├── theme-dark.css       # Dark/luxury feel
+│   │   │   └── theme-sport.css      # Bold/sporty red accent
 │   │   │
 │   │   ├── /context
 │   │   │   ├── AuthContext.jsx
-│   │   │   └── ThemeContext.jsx
+│   │   │   ├── ThemeContext.jsx
+│   │   │   └── CarContext.jsx       # Saved cars, compare list
 │   │   │
 │   │   ├── /hooks
 │   │   │   ├── useAuth.js
 │   │   │   ├── useFetch.js
-│   │   │   └── useTheme.js
+│   │   │   ├── useTheme.js
+│   │   │   └── useCarFilter.js      # Filter/sort car listings
 │   │   │
 │   │   ├── /services
 │   │   │   ├── api.js               # Axios base instance
 │   │   │   ├── authService.js
-│   │   │   ├── productService.js
+│   │   │   ├── carService.js        # Car CRUD API calls
 │   │   │   └── userService.js
 │   │   │
 │   │   ├── /routes
 │   │   │   ├── AppRouter.jsx
-│   │   │   └── PrivateRoute.jsx      # Auth-protected wrapper
+│   │   │   └── PrivateRoute.jsx
 │   │   │
 │   │   ├── /utils
-│   │   │   ├── seo.js               # react-helmet-async helpers
+│   │   │   ├── seo.js               # Meta tags per car listing
+│   │   │   ├── formatCurrency.js    # Price formatting
 │   │   │   └── helpers.js
 │   │   │
 │   │   ├── /onboarding
-│   │   │   ├── TourGuide.jsx         # React Joyride
-│   │   │   └── HowToGuide.jsx
+│   │   │   ├── TourGuide.jsx        # React Joyride site tour
+│   │   │   └── HowToGuide.jsx       # How to buy a car guide
 │   │   │
 │   │   ├── App.jsx
 │   │   ├── App.css
-│   │   └── index.jsx                  # React entry point
+│   │   └── index.js                 # CRA entry point
 │   │
 │   ├── .env
-│   ├── index.html                    # HTML5 root
-│   ├── vite.config.js
 │   └── package.json
 │
-├── /backend                          # Node.js + Express REST API
+├── /backend                         # Node.js + Express REST API
 │   ├── /config
-│   │   ├── db.js                     # MySQL connection (mysql2)
-│   │   └── app.js                    # Express app setup, CORS
+│   │   ├── db.js                    # MySQL connection (mysql2)
+│   │   └── app.js                   # Express app setup, CORS
 │   │
 │   ├── /routes
 │   │   ├── authRoutes.js
-│   │   ├── productRoutes.js
+│   │   ├── carRoutes.js             # Car listings CRUD
 │   │   ├── userRoutes.js
-│   │   ├── blogRoutes.js
-│   │   └── monitorRoutes.js          # Health check endpoints
+│   │   ├── dealerRoutes.js          # Dealership locations
+│   │   └── monitorRoutes.js         # Health check endpoints
 │   │
 │   ├── /controllers
 │   │   ├── authController.js
-│   │   ├── productController.js
+│   │   ├── carController.js
 │   │   ├── userController.js
-│   │   ├── blogController.js
+│   │   ├── dealerController.js
 │   │   └── monitorController.js
 │   │
 │   ├── /models
 │   │   ├── User.js
-│   │   ├── Product.js
-│   │   └── Post.js
+│   │   ├── Car.js                   # make, model, year, price, mileage, status
+│   │   └── Dealer.js
 │   │
 │   ├── /middleware
-│   │   ├── authMiddleware.js         # JWT verification
-│   │   └── adminMiddleware.js        # Admin role check
+│   │   ├── authMiddleware.js        # JWT verification
+│   │   └── adminMiddleware.js       # Admin role check
 │   │
 │   ├── /utils
 │   │   └── helpers.js
 │   │
-│   ├── .env                          # DB creds, JWT secret, PORT
-│   ├── server.js                     # Entry point
+│   ├── .env
+│   ├── server.js
 │   └── package.json
 │
 ├── /database
-│   ├── schema.sql                    # Table definitions
-│   ├── seed.sql                      # 20+ records
+│   ├── schema.sql                   # users, cars, dealers tables
+│   ├── seed.sql                     # 20+ car records
 │   └── /migrations
+│       ├── 001_create_users.sql
+│       ├── 002_create_cars.sql
+│       └── 003_create_dealers.sql
 │
 ├── .gitignore
 ├── README.md
