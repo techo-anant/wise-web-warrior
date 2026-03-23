@@ -22,7 +22,14 @@ body.sport {
 
 /* ===== HEADER ===== */
 .header {
-  background-color: lightgray;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background-color: rgba(0, 0, 0, 0.1);
   padding: 15px;
   text-align: center;
 }
@@ -35,12 +42,8 @@ nav a {
   font-weight: bold;
 }
 
-/* ===== FOOTER ===== */
-.footer {
-  background-color: lightgray;
-  padding: 10px;
-  text-align: center;
-  margin-top: 20px;
+nav a:hover {
+  text-decoration: underline;
 }
 
 /* ===== CAR LAYOUT ===== */
@@ -54,15 +57,35 @@ nav a {
 
 /* ===== CAR CARD ===== */
 .card {
-  border: 1px solid black;
-  padding: 10px;
-  width: 200px;
-  background-color: white;
+  border: 1px solid #ccc;
+  padding: 12px;
+  width: 220px;
+  border-radius: 8px;
+  background-color: inherit;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
 }
 
 /* ===== SEARCH BAR ===== */
 input {
-  padding: 8px;
-  margin: 10px;
-  width: 200px;
+  padding: 10px;
+  margin: 15px;
+  width: 250px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* ===== IMAGE PLACEHOLDER ===== */
+.image-placeholder {
+  height: 120px;
+  background-color: #ddd;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
 }
