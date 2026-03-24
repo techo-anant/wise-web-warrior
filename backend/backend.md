@@ -1,19 +1,19 @@
 # 🛠️ CarDeals — Backend File Brief
 
-## `/config`
+## `/config` 
 | File | Description |
 |------|-------------|
-| `db.js` | MySQL connection pool using mysql2, exports promise-based instance |
-| `app.js` | Express app setup, registers CORS, JSON parsing, and all routes |
+| `db.js` | MySQL connection pool using mysql2, exports promise-based instance ✅| 
+| `app.js` | Express app setup, registers CORS, JSON parsing, and all routes ✅|
 
 ---
 
 ## `/routes`
 | File | Description |
 |------|-------------|
-| `authRoutes.js` | Endpoints for login, register, logout |
-| `carRoutes.js` | Endpoints for car listing CRUD operations |
-| `userRoutes.js` | Endpoints for user profile and admin user management |
+| `authRoutes.js` | Endpoints for login, register, logout ✅|
+| `carRoutes.js` | Endpoints for car listing CRUD operations ✅|
+| `userRoutes.js` | Endpoints for user profile and admin user management ✅|
 | `dealerRoutes.js` | Endpoints for fetching dealership locations |
 | `monitorRoutes.js` | Endpoints for service and database health checks |
 
@@ -22,9 +22,9 @@
 ## `/controllers`
 | File | Description |
 |------|-------------|
-| `authController.js` | Handles login logic, password hashing, JWT token generation |
-| `carController.js` | Handles fetching, creating, updating, and deleting car records |
-| `userController.js` | Handles profile updates, account disabling, role management |
+| `authController.js` | Handles login logic, password hashing, JWT token generation ✅|
+| `carController.js` | Handles fetching, creating, updating, and deleting car records ✅|
+| `userController.js` | Handles profile updates, account disabling, role management ✅|
 | `dealerController.js` | Handles fetching dealer branch data and locations |
 | `monitorController.js` | Pings DB and services, returns online/offline status per service |
 
@@ -33,8 +33,8 @@
 ## `/models`
 | File | Description |
 |------|-------------|
-| `User.js` | SQL queries for user table — find, create, update, disable |
-| `Car.js` | SQL queries for car table — find all, find one, insert, update, delete |
+| `User.js` | SQL queries for user table — find, create, update, disable ✅|
+| `Car.js` | SQL queries for car table — find all, find one, insert, update, delete ✅|
 | `Dealer.js` | SQL queries for dealer table — find all locations, find by city |
 
 ---
@@ -42,8 +42,8 @@
 ## `/middleware`
 | File | Description |
 |------|-------------|
-| `authMiddleware.js` | Verifies JWT token on protected routes, attaches user to request |
-| `adminMiddleware.js` | Checks if authenticated user has admin role, blocks if not |
+| `authMiddleware.js` | Verifies JWT token on protected routes, attaches user to request ✅|
+| `adminMiddleware.js` | Checks if authenticated user has admin role, blocks if not ✅|
 
 ---
 
@@ -58,7 +58,7 @@
 | File | Description |
 |------|-------------|
 | `server.js` | Entry point — starts Express server, listens on PORT from .env |
-| `.env` | Environment variables — DB credentials, JWT secret, PORT |
+| `.env` | Environment variables — DB credentials, JWT secret, PORT ✅|
 | `package.json` | Node dependencies and npm scripts (start, dev) |
 
 ---
