@@ -1,17 +1,30 @@
 import React from "react";
-import NavMenu from "./NavMenu";
-import ThemeSwitcher from "../ui/ThemeSwitcher";
+import { NavLink } from "react-router-dom";
+import "./Header.css"; // for styling
 
 function Header() {
   return (
-    <header className="header">
-      <h1>Wise Web Motors</h1>
-
-      {/* Navigation menu */}
-      <NavMenu />
-
-      {/* Theme switcher */}
-      <ThemeSwitcher />
+    <header className="site-header">
+      <div className="logo">
+        <h1>Wise Web Warriors</h1>
+      </div>
+      
+      <nav className="nav-menu">
+        <ul>
+          <li>
+            <NavLink to="/" end activeclassname="active">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" activeclassname="active">About</NavLink>
+          </li>
+          <li>
+            <NavLink to="/contact" activeclassname="active">Contact</NavLink>
+          </li>
+          <li>
+            <NavLink to="/faq" activeclassname="active">FAQ</NavLink>
+          </li>
+        </ul>
+      </nav>
     </header>
   );
 }

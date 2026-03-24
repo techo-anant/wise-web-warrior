@@ -1,0 +1,43 @@
+.home {
+  padding: 2rem;
+}
+
+/* HERO */
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  margin-bottom: 1rem;
+}
+
+.hero-btn {
+  padding: 0.7rem 1.5rem;
+  border: none;
+  background-color: #222;
+  color: white;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+/* FEATURED */
+.featured {
+  margin-top: 2rem;
+}
+
+.car-list {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.car-card {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}

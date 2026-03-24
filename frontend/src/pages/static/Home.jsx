@@ -1,31 +1,39 @@
-import React, { useState } from "react";
-import CarGrid from "../../components/cars/CarGrid";
-import SearchBar from "../../components/ui/SearchBar";
+import React from "react";
+import "./Home.css";
 
 function Home() {
-  // Fake car data (can connect to backend later)
-  const [cars] = useState([
-  { id: 1, name: "Toyota Camry", price: 25000, year: 2020, mileage: 50000 },
-  { id: 2, name: "Honda Civic", price: 22000, year: 2019, mileage: 60000 },
-  { id: 3, name: "Ford Mustang", price: 40000, year: 2022, mileage: 15000 },
-]);
-
-  const [search, setSearch] = useState("");
-
-  // Filter cars by search
-  const filteredCars = cars.filter(car =>
-    car.name.toLowerCase().includes(search.toLowerCase())
-  );
-
   return (
-    <div>
-      <h2>Available Cars</h2>
+    <div className="home">
 
-      {/* Search bar */}
-      <SearchBar setSearch={setSearch} />
+      {/* HERO SECTION */}
+      <section className="hero">
+        <h1>Find Your Perfect Car</h1>
+        <p>Browse the best deals on new and used vehicles.</p>
+        <button className="hero-btn">Browse Inventory</button>
+      </section>
 
-      {/* Car list */}
-      <CarGrid cars={filteredCars} />
+      {/* FEATURED CARS */}
+      <section className="featured">
+        <h2>Featured Cars</h2>
+
+        <div className="car-list">
+          <div className="car-card">
+            <h3>2022 Honda Civic</h3>
+            <p>Price: $24,000</p>
+          </div>
+
+          <div className="car-card">
+            <h3>2021 Toyota Corolla</h3>
+            <p>Price: $22,500</p>
+          </div>
+
+          <div className="car-card">
+            <h3>2023 Ford Mustang</h3>
+            <p>Price: $35,000</p>
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 }

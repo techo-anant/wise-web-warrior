@@ -1,9 +1,10 @@
 import React from "react";
+import "./Footer.css"; // for styling
 
 function Footer() {
   return (
-    <footer className="footer">
-      <p>© 2026 Wise Web Motors</p>
+    <footer className="site-footer">
+      <p>&copy; 2026 Wise Web Warriors. All rights reserved.</p>
     </footer>
   );
 }
