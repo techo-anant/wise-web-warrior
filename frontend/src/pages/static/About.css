@@ -1,10 +1,8 @@
 .about-container {
-  /* Use theme variable for base text */
   color: var(--text-color);
   line-height: 1.6;
 }
 
-/* Hero Section */
 .about-hero {
   height: 50vh;
   background: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1500') center/cover no-repeat;
@@ -16,7 +14,6 @@
 }
 
 .hero-overlay {
-  /* Keep overlay dark so white text always pops against the car photo */
   background: rgba(0, 0, 0, 0.7); 
   width: 100%;
   height: 100%;
@@ -25,8 +22,6 @@
   justify-content: center;
   padding: 0 20px;
 }
-
-/* CRITICAL: Force Hero text to stay white regardless of theme because of the dark overlay */
 .about-hero h1, 
 .about-hero p {
   color: #ffffff !important; 
@@ -41,7 +36,6 @@
   color: var(--accent-color);
 }
 
-/* Content Sections */
 .about-content {
   max-width: 1100px;
   margin: 60px auto;
@@ -53,7 +47,6 @@
   margin-bottom: 50px;
 }
 
-/* Added explicit color for H2 */
 .about-text-wrapper h2 {
   color: var(--text-color);
 }
@@ -66,12 +59,9 @@
   max-width: 800px;
   margin: 20px auto;
   font-size: 1.1rem;
-  /* FIXED: Changed #ccc to var(--text-color) for theme compatibility */
   color: var(--text-color);
   opacity: 0.9;
 }
-
-/* Grid Section */
 .about-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -84,7 +74,6 @@
   padding: 30px;
   border-radius: 12px;
   text-align: center;
-  /* Softened the border to look better in light modes */
   border: 1px solid rgba(128, 128, 128, 0.2); 
   transition: transform 0.3s ease;
 }
@@ -100,20 +89,16 @@
   margin-bottom: 5px;
 }
 
-/* Added color for stat-card descriptions */
 .stat-card p {
   color: var(--text-color);
 }
 
-/* Tech Section */
 .tech-section {
-  /* Using a very light adaptive background */
   background: rgba(128, 128, 128, 0.05);
   padding: 60px 20px;
   text-align: center;
 }
 
-/* Ensure tech title is visible */
 .tech-section h3 {
   color: var(--text-color);
 }
@@ -128,7 +113,7 @@
 
 .tech-icons span {
   background: var(--card-bg);
-  color: var(--text-color); /* FIXED for visibility */
+  color: var(--text-color);
   padding: 10px 20px;
   border-radius: 30px;
   border: 1px solid var(--accent-color);
