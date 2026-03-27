@@ -7,7 +7,7 @@
 // export default Contact;
 
 // earlier code above ^^^^^^^^^^^^^^^^^^
-// new code [INDER] below
+// new code below
 
 
 import React, { useState } from 'react';
