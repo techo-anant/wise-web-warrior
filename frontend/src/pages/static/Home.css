@@ -135,18 +135,24 @@ NEW CODE BELOW */
 }
 
 .type-card {
-  background-color: var(--card-bg); 
+  background-color: var(--card-bg);
   color: var(--text-color);
   padding: 40px;
   border-radius: 10px;
   font-weight: bold;
-  box-shadow: 10px 20px 7px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
   border-bottom: 4px solid var(--accent-color);
-  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease !important;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
   cursor: pointer;
 }
 
 .type-card:hover {
+  background-color: var(--accent-color);
+
+  color: #111 !important;
+
   transform: translateY(-12px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 35px rgba(0, 204, 153, 0.4);
+
+  border-color: #fff;
 }

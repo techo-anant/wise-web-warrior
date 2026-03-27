@@ -26,15 +26,14 @@
 //earlier one above
 //new commit below
 
-
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import './themes/theme-default.css';
 import './themes/theme-dark.css';
 import './themes/theme-sport.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import AppRouter from './routes/AppRouter';
+
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState('default');
