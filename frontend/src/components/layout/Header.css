@@ -1,4 +1,4 @@
-.site-header {
+/* .site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -23,4 +23,185 @@
 .nav-menu a.active {
   text-decoration: underline;
   font-weight: bold;
+} */
+
+
+/* earlier code above ^^^^^^^^^^^^^^^^^^
+NEW CODE BELOW */
+
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 6%;
+  background-color: var(--bg-color);
+  border-bottom: 4px solid var(--accent-color);
+  position: sticky; 
+  top: 0;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+.brand-name {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  letter-spacing: -1px;
+}
+
+.brand-name span {
+  color: var(--accent-color);
+  font-style: italic;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+  padding-bottom: 5px;
+}
+
+.nav-list a:hover {
+  opacity: 0.7;
+  border-bottom: 2px solid var(--accent-color);
+}
+
+
+.theme-toggle-btn {
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-right: 5px;
+  padding: 0;
+}
+
+
+.theme-toggle-btn svg {
+  display: block;
+}
+
+.theme-toggle-btn:hover {
+  transform: rotate(15deg) scale(1.1);
+  box-shadow: 0 0 12px var(--accent-color);
+}
+
+
+.theme-toggle-btn.theme-default {
+  color: #33dc9c;
+  border-color: #33dc9c;
+}
+
+.theme-toggle-btn.theme-dark {
+  color: #33dc9c;
+  border-color: #33dc9c;
+}
+
+.theme-toggle-btn.theme-sport {
+  color: #e63946; 
+  border-color: #e63946;
+}
+
+
+.header-utilities {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.auth-section {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  background: transparent;
+  color: var(--text-color);
+  border: 2px solid var(--accent-color);
+  text-decoration: none;
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.login-btn:hover {
+  background-color: var(--accent-color);
+  color: #ffffff; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.welcome-text {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.admin-badge {
+  background: var(--accent-color);
+  color: #000;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.logout-style {
+  background: transparent !important;
+  border: 1px solid var(--accent-color) !important;
+  color: var(--accent-color) !important;
+}
+
+.logout-style:hover {
+  background: var(--accent-color) !important;
+  color: #ffffff !important;
+}
+
+.active-default {
+  border-color: #33dc9c; 
+}
+
+.active-dark {
+  border-color: #00ffff; 
+  box-shadow: 0 4px 15px rgba(0, 255, 255, 0.15);
+}
+
+.active-sport {
+  border-color: #e63946; 
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.15);
+}
+
+[data-theme='sport'] .login-btn:hover {
+  color: #ffffff;
+  border-color: var(--accent-color);
 }
