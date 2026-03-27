@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/static/Home";
+import Inventory from "../pages/dynamic/Inventory";
 
 function About() {
   return (
@@ -41,6 +42,7 @@ function AppRouter() {
       <Route path="/contact" element={<Contact />} />
       <Route path="/faq" element={<FAQ />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="/inventory" element={<Inventory />} />
     </Routes>
   );
 }

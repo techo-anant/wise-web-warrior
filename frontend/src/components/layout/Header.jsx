@@ -23,6 +23,9 @@ function Header() {
           <li>
             <NavLink to="/faq" activeclassname="active">FAQ</NavLink>
           </li>
+          <li>
+            <NavLink to="/inventory">Inventory</NavLink>
+          </li>
         </ul>
       </nav>
     </header>
