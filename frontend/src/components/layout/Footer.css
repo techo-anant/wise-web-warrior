@@ -1,4 +1,4 @@
-.site-footer {
+/* .site-footer {
   background-color: #222;
   color: #fff;
   text-align: center;
@@ -7,4 +7,78 @@
   bottom: 0;
   width: 100%;
   font-size: 0.9rem;
+} */
+
+/* earlier code above ^^^^^^^^^^^^^^^
+NEW CODE BELOW */
+
+.main-footer {
+
+  background-color: var(--footer-bg); 
+  color: var(--text-color);
+  padding: 3rem 6% 1rem 6%;
+  border-top: 2px solid var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+[data-theme='sport'] .main-footer {
+  color: #ffffff;
+}
+
+[data-theme='sport'] .main-footer,
+[data-theme='sport'] .main-footer a,
+[data-theme='sport'] .main-footer h4,
+[data-theme='sport'] .main-footer p {
+  color: #ffffff !important;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-bottom: 2rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h3 span {
+  color: var(--accent-color);
+}
+
+.footer-section h4 {
+  margin-bottom: 1.2rem;
+  border-bottom: 1px solid var(--accent-color);
+  display: inline-block;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+  text-decoration: none;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.footer-section a:hover {
+  opacity: 1;
+  color: var(--accent-color);
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid rgba(128, 128, 128, 0.2); 
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--secondary-text);
 }
