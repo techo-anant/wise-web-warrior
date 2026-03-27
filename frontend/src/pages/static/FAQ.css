@@ -1,0 +1,77 @@
+.faq-page {
+  color: var(--text-color);
+  padding-bottom: 80px;
+}
+
+.faq-hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(128, 128, 128, 0.05);
+}
+
+.faq-hero h1 span {
+  color: var(--accent-color);
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.faq-item {
+  background: var(--card-bg);
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: var(--accent-color);
+}
+
+.faq-question {
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  padding-right: 20px;
+}
+
+.faq-icon {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  font-weight: bold;
+}
+
+.faq-answer {
+  max-height: 0;
+  padding: 0 25px;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px; 
+  padding: 10px 25px 25px 25px;
+}
+
+.faq-item.active {
+  border-color: var(--accent-color);
+}
+
+.faq-answer p {
+  color: var(--text-color);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin: 0;
+}
