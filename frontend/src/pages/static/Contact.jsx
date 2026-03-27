@@ -39,7 +39,6 @@ const Contact = () => {
       </section>
 
       <div className="contact-container">
-        {/* --- CONTACT FORM --- */}
         <div className="contact-form-section">
           <h2>Send us a <span>Message</span></h2>
           <form onSubmit={handleSubmit}>
@@ -64,7 +63,6 @@ const Contact = () => {
           </form>
         </div>
 
-        {/* --- SHOWROOM INFO --- */}
         <div className="contact-info-section">
           <div className="info-card">
             <h3>Showroom <span>Location</span></h3>
