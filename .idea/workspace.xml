@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="21b5c87b-5e63-4032-ad2b-c552caf9990d" name="Changes" comment="Changes in first page car type &quot;fancy&quot; to &quot;electric&quot;. Added Hover effect for 4 car types.">
+      <change beforePath="$PROJECT_DIR$/frontend/src/pages/static/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/static/Home.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "ColeoYan"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/techo-anant/wise-web-warrior.git",
+    "accountId": "f2ba4a8a-95c4-42aa-95a9-3832f0174da3"
+  }
+}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="3BKnwzq9E4k0eEXpFwZMsQ4ezhX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "Yan-dev",
+    "javascript.preferred.runtime.type.id": "node",
+    "nodejs_interpreter_path": "C:/Users/Yan/AppData/Roaming/JetBrains/WebStorm2025.3/node/versions/24.14.1/node",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.31033.133" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="21b5c87b-5e63-4032-ad2b-c552caf9990d" name="Changes" comment="" />
+      <created>1774246871631</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1774246871631</updated>
+      <workItem from="1774246873171" duration="8000" />
+      <workItem from="1774246886973" duration="1495000" />
+      <workItem from="1774579299923" duration="10116000" />
+      <workItem from="1774648192460" duration="4802000" />
+    </task>
+    <task id="LOCAL-00001" summary="Changes in first page car type &quot;fancy&quot; to &quot;electric&quot;. Added Hover effect for 4 car types.">
+      <option name="closed" value="true" />
+      <created>1774651523286</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1774651523286</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add basic Home page, header, footer, NavMenu, and initial static pages" />
+    <MESSAGE value="Changes in first page car type &quot;fancy&quot; to &quot;electric&quot;. Added Hover effect for 4 car types." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes in first page car type &quot;fancy&quot; to &quot;electric&quot;. Added Hover effect for 4 car types." />
+  </component>
+</project>
