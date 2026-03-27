@@ -24,7 +24,7 @@
 
 
 //earlier one above
-//new commit [INDER] below
+//new commit below
 
 
 import React, { useState } from 'react';
