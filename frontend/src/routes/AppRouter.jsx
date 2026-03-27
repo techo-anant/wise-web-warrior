@@ -55,7 +55,7 @@
 
 
 //earlier one above^^^^^^^^^^^^^^^^^^^^
-//new commit [INDER] below
+//new commit below
 
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -92,7 +92,6 @@ function AppRouter({ user, setUser }) {
       <Route path="/compare" element={<Compare />} />
       <Route path="/dealer-locator" element={<DealerLocator />} />
       
-      {/* Dynamic Dashboard Route */}
       <Route 
         path="/dashboard" 
         element={
@@ -101,7 +100,7 @@ function AppRouter({ user, setUser }) {
             <AdminDashboard user={user} /> : 
             <Dashboard user={user} />
           ) : (
-            <Navigate to="/login" /> // Redirect to login if not authenticated
+            <Navigate to="/login" /> 
           )
         } 
       />
