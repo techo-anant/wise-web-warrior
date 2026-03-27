@@ -1,0 +1,8 @@
+[data-theme='dark'] {
+  --bg-color: #333333;   
+  --footer-bg: #1a1a1a;  
+  --text-color: #fdfffd;
+  --accent-color: #33dc9c;
+  --card-bg: #444444;
+  --secondary-text: #aaaaaa;
+}
