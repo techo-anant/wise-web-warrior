@@ -55,7 +55,6 @@ function App() {
       />
 
       <main style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
-        {/* ADD user={user} HERE */}
         <AppRouter setUser={setUser} user={user} /> 
       </main>
 
