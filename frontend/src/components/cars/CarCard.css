@@ -1,0 +1,38 @@
+.car-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.car-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.car-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Image */
+.car-image {
+  height: 150px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Info */
+.car-info {
+  padding: 1rem;
+}
+
+.price {
+  color: green;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}

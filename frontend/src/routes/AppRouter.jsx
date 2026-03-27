@@ -2,6 +2,8 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "../pages/static/Home";
 import Inventory from "../pages/dynamic/Inventory";
+import CarDetail from "../pages/dynamic/CarDetail";
+import Category from "../pages/dynamic/Category";
 
 function About() {
   return (
@@ -43,6 +45,8 @@ function AppRouter() {
       <Route path="/faq" element={<FAQ />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/inventory" element={<Inventory />} />
+      <Route path="/cars/:id" element={<CarDetail />} />
+      <Route path="/category/:category" element={<Category />} />
     </Routes>
   );
 }
