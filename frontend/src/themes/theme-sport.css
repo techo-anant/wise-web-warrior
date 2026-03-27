@@ -1,0 +1,9 @@
+[data-theme='sport'] {
+  --bg-color: #bbd3ec;
+  --footer-bg: #111111;  
+  --text-color: #111111;
+  --accent-color: #e63946;
+  --secondary-accent: #111111;
+  --card-bg: #ffffff;
+  --secondary-text: #444444;
+}
