@@ -52,7 +52,7 @@ NEW CODE BELOW */
 
 .hero {
   height: 60vh;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1920');
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../../assets/HeaderImage.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
