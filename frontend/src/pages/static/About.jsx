@@ -4,7 +4,6 @@ import './About.css';
 const About = () => {
   return (
     <div className="about-container">
-      {/* --- HERO SECTION --- */}
       <section className="about-hero">
         <div className="hero-overlay">
           <h1>Driven by <span>Excellence</span></h1>
@@ -12,7 +11,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* --- MISSION SECTION --- */}
       <section className="about-content">
         <div className="about-text-wrapper">
           <h2>Our <span>Mission</span></h2>
@@ -28,7 +26,6 @@ const About = () => {
           </p>
         </div>
 
-        {/* --- STATS/FEATURES GRID --- */}
         <div className="about-grid">
           <div className="stat-card">
             <h3>500+</h3>
@@ -49,7 +46,6 @@ const About = () => {
         </div>
       </section>
 
-      {/* --- TECH STACK SECTION (Optional but cool for a CS Project) --- */}
       <section className="tech-section">
         <h3>Built with <span>Modern Tech</span></h3>
         <div className="tech-icons">
