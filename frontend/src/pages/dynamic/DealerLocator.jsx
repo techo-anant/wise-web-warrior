@@ -48,7 +48,7 @@ const DealerLocator = () => {
             <div className="info-group">
               <h4>Contact Us</h4>
               <p>☎️ +1(771)721-0576</p>
-              <p>🖥️ sales@wisewebwarriors.com</p>
+              <p>🖥️ sales@cardeals.com</p>
             </div>
           </div>
         </div>
