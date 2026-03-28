@@ -45,16 +45,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      <section className="tech-section">
-        <h3>Built with <span>Modern Tech</span></h3>
-        <div className="tech-icons">
-          <span>React.js</span>
-          <span>Next.js</span>
-          <span>CSS3</span>
-          <span>C++23 Backend</span>
-        </div>
-      </section>
     </div>
   );
 };
