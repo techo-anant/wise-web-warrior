@@ -1,23 +1,6 @@
-// import React from "react";
-// import "./Footer.css"; // for styling
-
-// function Footer() {
-//   return (
-//     <footer className="site-footer">
-//       <p>&copy; 2026 Wise Web Warriors. All rights reserved.</p>
-//     </footer>
-//   );
-// }
-
-// export default Footer;
-
-//earlier code above ^^^^^^^^^^^^^^^^^
-// NEW CODE BELOW
-
-
 import React from 'react';
 import './Footer.css';
-
+import { Link } from 'react-router-dom';
 function Footer() {
   return (
     <footer className="main-footer">
@@ -41,7 +24,19 @@ function Footer() {
           <p>123 Dealership Way</p>
           <p>Phone: (555) 012-3456</p>
         </div>
+
+        <div className="footer-section">
+          <h4>Help</h4>
+          <ul>
+            <li><Link to="/help/login-register">Login and register</Link></li>
+            <li><Link to="/help/navigating">Navigating through website</Link></li>
+            <li><Link to="/help/filters">Filter functionality</Link></li>
+            <li><Link to="/help/compare">Compare functionality</Link></li>
+            <li><Link to="/help/admin">Admin permissions</Link></li>
+          </ul>
+        </div>
       </div>
+
       
       <div className="footer-bottom">
         <p>&copy; 2026 Wise Web Warriors. All rights reserved.</p>

@@ -83,6 +83,12 @@ const Login = ({ setUser }) => {
         <div className="auth-footer" style={{ marginTop: '20px' }}>
           <p>Don't have an account? <Link to="/register">Register here</Link></p>
         </div>
+
+        <div className="auth-footer" style={{ marginTop: '20px', textAlign: 'center' }}>
+  <p style={{ marginTop: '10px', fontSize: '0.9rem' }}>
+    Need help? <Link to="/help/login-register" style={{ color: 'var(--accent-color)' }}>View Login Guide</Link>
+  </p>
+</div>
       </div>
     </div>
   );

@@ -32,6 +32,13 @@ import UserManager from '../pages/admin/UserManager';
 import ThemeManager from '../pages/admin/ThemeManager';
 import Monitor from '../pages/admin/Monitor';
 
+// Help Pages
+import HelpLoginRegister from '../pages/Help/HelpLoginRegister';
+import HelpNavigating from '../pages/Help/HelpNavigating';
+import HelpFilter from '../pages/Help/HelpFilter';
+import HelpComparison from '../pages/Help/HelpComparison';
+import HelpAdminPrmissnNavi from '../pages/Help/HelpAdminPrmissnNavi';
+
 function AppRouter({ user, setUser, currentTheme, setTheme , onLogout}) {
 
   // ── PRIVATE ROUTE WRAPPER ──
@@ -92,6 +99,13 @@ function AppRouter({ user, setUser, currentTheme, setTheme , onLogout}) {
       <Route path="/admin/users"    element={<AdminRoute element={<UserManager />} />} />
       <Route path="/admin/monitor"  element={<AdminRoute element={<Monitor />} />} />
       <Route path="/admin/themes"   element={<AdminRoute element={<ThemeManager currentTheme={currentTheme} setTheme={setTheme} />} />} />
+
+      {/* Help Pages */}
+      <Route path="/help/login-register" element={<HelpLoginRegister />} />
+<Route path="/help/navigating" element={<HelpNavigating />} />
+<Route path="/help/filters" element={<HelpFilter />} />
+<Route path="/help/compare" element={<HelpComparison />} />
+<Route path="/help/admin" element={<HelpAdminPrmissnNavi />} />
 
       {/* ── 404 ── */}
       <Route path="*" element={<NotFound />} />

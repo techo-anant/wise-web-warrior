@@ -93,6 +93,9 @@ const Register = () => {
 
         <div className="auth-footer" style={{ marginTop: '20px' }}>
           <p>Already have an account? <Link to="/login">Login here</Link></p>
+          <p style={{ marginTop: '10px', fontSize: '0.85rem', opacity: '0.8' }}>
+            Need help? <Link to="/help/login-register" style={{ color: 'var(--accent-color)', fontWeight: '600' }}>View Registration Guide</Link>
+          </p>
         </div>
       </div>
     </div>
