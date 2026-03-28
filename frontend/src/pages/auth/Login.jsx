@@ -1,29 +1,36 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import '../dynamic/Auth.css'; 
+import { login } from '../../services/authService';
+import '../dynamic/Auth.css';
 
 const Login = ({ setUser }) => {
   const [formData, setFormData] = useState({ email: '', password: '' });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-  
-    const mockUser = {
-      name: formData.email.split('@')[0], 
-      role: formData.email.toLowerCase().includes('admin') ? 'admin' : 'user',
-      token: "mock-jwt-token"
-    };
+    setError('');
+    setLoading(true);
 
-    localStorage.setItem('user', JSON.stringify(mockUser));
-    
-    setUser(mockUser);
+    try {
+      const data = await login(formData.email, formData.password);
 
-    navigate('/');
+      // Set user in parent state
+      setUser(data.user);
+
+      navigate('/');
+      
+    } catch (err) {
+      setError(err.response?.data?.message || 'Login failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -31,42 +38,48 @@ const Login = ({ setUser }) => {
       <div className="auth-card">
         <h2>Welcome <span>Back</span></h2>
         <p>Login to access your premium showroom profile.</p>
-        
+
+        {error && (
+          <div style={{ color: 'red', marginBottom: '10px', fontSize: '0.9rem' }}>
+            {error}
+          </div>
+        )}
+
         <form className="auth-form" onSubmit={handleLogin}>
-          <input 
-            type="email" 
-            name="email" 
-            placeholder="Email Address" 
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
             value={formData.email}
-            onChange={handleChange} 
-            required 
+            onChange={handleChange}
+            required
           />
-          <input 
-            type="password" 
-            name="password" 
-            placeholder="Password" 
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
             value={formData.password}
-            onChange={handleChange} 
-            required 
+            onChange={handleChange}
+            required
           />
 
           <div className="forgot-pw-container" style={{ textAlign: 'right', marginBottom: '15px' }}>
-            <Link to="/forgot-password" style={{ 
-                fontSize: '0.85rem', 
-                color: 'var(--accent-color)', 
-                textDecoration: 'none',
-                fontWeight: '600',
-                opacity: '0.9'
-              }}>
+            <Link to="/forgot-password" style={{
+              fontSize: '0.85rem',
+              color: 'var(--accent-color)',
+              textDecoration: 'none',
+              fontWeight: '600',
+              opacity: '0.9'
+            }}>
               Forgot Password?
             </Link>
           </div>
 
-          <button type="submit" className="auth-btn">
-            Login
+          <button type="submit" className="auth-btn" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
-        
+
         <div className="auth-footer" style={{ marginTop: '20px' }}>
           <p>Don't have an account? <Link to="/register">Register here</Link></p>
         </div>

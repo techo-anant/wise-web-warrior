@@ -1,76 +1,96 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import '../dynamic/Auth.css'; 
+import { register } from '../../services/authService';
+import '../dynamic/Auth.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
   });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+    setError('');
+
     if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match!");
+      setError('Passwords do not match.');
       return;
     }
-    
-    console.log("User Registered:", formData);
-    alert("Registration successful! Please login.");
-    navigate('/login');
+
+    setLoading(true);
+
+    try {
+      await register(formData.username, formData.email, formData.password);
+      alert('Registration successful! Please login.');
+      navigate('/login');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Registration failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className="auth-page">
       <div className="auth-card">
         <h2>Create <span>Account</span></h2>
-        <p>Join the Wise Web Warriors community today.</p>
-        
+        <p>Join the CarDeals community today.</p>
+
+        {error && (
+          <div style={{ color: 'red', marginBottom: '10px', fontSize: '0.9rem' }}>
+            {error}
+          </div>
+        )}
+
         <form className="auth-form" onSubmit={handleRegister}>
-          <input 
-            type="text" 
-            name="username" 
-            placeholder="Username" 
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
             value={formData.username}
-            onChange={handleChange} 
-            required 
+            onChange={handleChange}
+            required
           />
-          <input 
-            type="email" 
-            name="email" 
-            placeholder="Email Address" 
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
             value={formData.email}
-            onChange={handleChange} 
-            required 
+            onChange={handleChange}
+            required
           />
-          <input 
-            type="password" 
-            name="password" 
-            placeholder="Password" 
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
             value={formData.password}
-            onChange={handleChange} 
-            required 
+            onChange={handleChange}
+            required
           />
-          <input 
-            type="password" 
-            name="confirmPassword" 
-            placeholder="Confirm Password" 
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
             value={formData.confirmPassword}
-            onChange={handleChange} 
-            required 
+            onChange={handleChange}
+            required
           />
-          <button type="submit" className="auth-btn">
-            Register
+
+          <button type="submit" className="auth-btn" disabled={loading}>
+            {loading ? 'Registering...' : 'Register'}
           </button>
         </form>
-        
+
         <div className="auth-footer" style={{ marginTop: '20px' }}>
           <p>Already have an account? <Link to="/login">Login here</Link></p>
         </div>
