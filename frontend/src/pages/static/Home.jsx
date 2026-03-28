@@ -21,7 +21,9 @@ function Home() {
               <Link to="/inventory" className="btn-primary">
                 View Inventory
               </Link>
-              <button className="btn-secondary">Book a Test Drive</button>
+              <Link to="/inventory" className="btn-secondary">
+              Book a Test Drive
+            </Link>
             </div>
           </div>
         </section>
