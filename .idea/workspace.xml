@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="21b5c87b-5e63-4032-ad2b-c552caf9990d" name="Changes" comment="Added I">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/pages/static/Home.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/pages/static/Home.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docx/INSTALL.md" beforeDir="false" afterPath="$PROJECT_DIR$/docx/INSTALL.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +80,8 @@
       <workItem from="1774246886973" duration="1495000" />
       <workItem from="1774579299923" duration="10116000" />
       <workItem from="1774648192460" duration="5105000" />
-      <workItem from="1774653345743" duration="159000" />
+      <workItem from="1774653345743" duration="1641000" />
+      <workItem from="1774718435247" duration="2327000" />
     </task>
     <task id="LOCAL-00001" summary="Changes in first page car type &quot;fancy&quot; to &quot;electric&quot;. Added Hover effect for 4 car types.">
       <option name="closed" value="true" />
