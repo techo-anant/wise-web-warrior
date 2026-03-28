@@ -33,11 +33,11 @@ import ThemeManager from '../pages/admin/ThemeManager';
 import Monitor from '../pages/admin/Monitor';
 
 // Help Pages
-import HelpLoginRegister from '../pages/Help/HelpLoginRegister';
-import HelpNavigating from '../pages/Help/HelpNavigating';
-import HelpFilter from '../pages/Help/HelpFilter';
-import HelpComparison from '../pages/Help/HelpComparison';
-import HelpAdminPrmissnNavi from '../pages/Help/HelpAdminPrmissnNavi';
+import HelpLoginRegister from '../pages/help/HelpLoginRegister';
+import HelpNavigating from '../pages/help/HelpNavigating';
+import HelpFilter from '../pages/help/HelpFilter';
+import HelpComparison from '../pages/help/HelpComparison';
+import HelpAdminPrmissnNavi from '../pages/help/HelpAdminPrmissnNavi';
 
 function AppRouter({ user, setUser, currentTheme, setTheme , onLogout}) {
 
