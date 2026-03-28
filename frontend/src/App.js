@@ -27,6 +27,7 @@
 //new commit below
 
 import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import './themes/theme-default.css';
 import './themes/theme-dark.css';
 import './themes/theme-sport.css';
@@ -36,8 +37,13 @@ import AppRouter from './routes/AppRouter';
 
 
 function App() {
-  const [currentTheme, setCurrentTheme] = useState('default');
+  const [currentTheme, setCurrentTheme] = useState(
+    localStorage.getItem('saved-theme') || 'default'
+  );
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+  useEffect(() => {
+    localStorage.setItem('saved-theme', currentTheme);
+  }, [currentTheme]);
 
   const handleLogout = () => {
     localStorage.removeItem('user');
