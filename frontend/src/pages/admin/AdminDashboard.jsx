@@ -1,33 +1,96 @@
-import React from 'react';
-import '../../pages/dynamic/Auth.css'; 
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { getAllCars } from '../../services/carService';
+import { getAllUsers } from '../../services/userService';
+import { getStatus } from '../../services/monitorService';
+import BackButton from '../../components/ui/BackButton';
+import '../../pages/dynamic/Auth.css';
 
 const AdminDashboard = ({ user }) => {
+  const [stats, setStats] = useState({
+    totalCars: 0,
+    totalUsers: 0,
+    systemStatus: 'checking...',
+  });
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const carData     = await getAllCars(1, 1);
+        const userData    = await getAllUsers();
+        const monitorData = await getStatus();
+        setStats({
+          totalCars:    carData.pagination.total,
+          totalUsers:   userData.length,
+          systemStatus: monitorData.system,
+        });
+      } catch (err) {
+        console.error('Failed to load admin stats:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchStats();
+  }, []);
+
   return (
     <div className="compare-page">
       <header className="compare-header">
+        {/* Back to main site */}
+        <BackButton label="← Back to Site" />
         <h1 style={{ color: 'var(--accent-color)' }}>Admin <span>Control Center</span></h1>
-        <p>System Overview & Management Tools</p>
+        <p>Welcome, <strong>{user?.name}</strong> — System Overview & Management Tools</p>
       </header>
 
       <div className="compare-table-container">
-        <div className="admin-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', color: 'var(--text-color)' }}>
-          
-          <div className="admin-card" style={{ background: 'var(--bg-color)', padding: '25px', borderRadius: '20px', border: '1px solid var(--accent-color)' }}>
-            <h3>📦 Inventory Management</h3>
-            <p>Update vehicle prices, add new stock, or mark vehicles as sold.</p>
-            <button className="clear-all-btn" style={{ fontSize: '0.7rem' }}>Update Stock</button>
+        <div style={{ color: 'var(--text-color)' }}>
+
+          {/* ── STATS ROW ── */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: '30px' }}>
+            <div style={{ background: 'rgba(var(--accent-rgb), 0.1)', padding: '25px', borderRadius: '15px', textAlign: 'center' }}>
+              <h2 style={{ color: 'var(--accent-color)', margin: '0 0 5px 0' }}>
+                {loading ? '...' : stats.totalCars}
+              </h2>
+              <p style={{ margin: 0, opacity: 0.8 }}>Total Listings</p>
+            </div>
+            <div style={{ background: 'rgba(var(--accent-rgb), 0.1)', padding: '25px', borderRadius: '15px', textAlign: 'center' }}>
+              <h2 style={{ color: 'var(--accent-color)', margin: '0 0 5px 0' }}>
+                {loading ? '...' : stats.totalUsers}
+              </h2>
+              <p style={{ margin: 0, opacity: 0.8 }}>Registered Users</p>
+            </div>
+            <div style={{ background: 'rgba(var(--accent-rgb), 0.1)', padding: '25px', borderRadius: '15px', textAlign: 'center' }}>
+              <h2 style={{ color: stats.systemStatus === 'online' ? 'green' : 'red', margin: '0 0 5px 0', textTransform: 'capitalize' }}>
+                {loading ? '...' : stats.systemStatus}
+              </h2>
+              <p style={{ margin: 0, opacity: 0.8 }}>System Status</p>
+            </div>
           </div>
 
-          <div className="admin-card" style={{ background: 'var(--bg-color)', padding: '25px', borderRadius: '20px', border: '1px solid var(--accent-color)' }}>
-            <h3>👥 User Overview</h3>
-            <p>View registered members and manage account permissions.</p>
-            <button className="clear-all-btn" style={{ fontSize: '0.7rem' }}>View Users</button>
-          </div>
-
-          <div className="admin-card" style={{ background: 'var(--bg-color)', padding: '25px', borderRadius: '20px', border: '1px solid var(--accent-color)', gridColumn: 'span 2' }}>
-            <h3>📈 Showroom Analytics</h3>
-            <p>Most viewed car: <strong>Porsche Night Rider</strong></p>
-            <p>Total Website Traffic: <strong>1,240 visits this week</strong></p>
+          {/* ── ADMIN ACTION CARDS ── */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+            <div className="admin-card" style={{ background: 'var(--bg-color)', padding: '25px', borderRadius: '20px', border: '1px solid var(--accent-color)' }}>
+              <h3>📦 Inventory Management</h3>
+              <p>Add new vehicles, update prices, or remove sold listings.</p>
+              <button className="clear-all-btn" style={{ fontSize: '0.8rem' }} onClick={() => navigate('/admin/cars')}>Manage Cars</button>
+            </div>
+            <div className="admin-card" style={{ background: 'var(--bg-color)', padding: '25px', borderRadius: '20px', border: '1px solid var(--accent-color)' }}>
+              <h3>👥 User Management</h3>
+              <p>View registered members, disable accounts, or promote to admin.</p>
+              <button className="clear-all-btn" style={{ fontSize: '0.8rem' }} onClick={() => navigate('/admin/users')}>Manage Users</button>
+            </div>
+            <div className="admin-card" style={{ background: 'var(--bg-color)', padding: '25px', borderRadius: '20px', border: '1px solid var(--accent-color)' }}>
+              <h3>🎨 Theme Manager</h3>
+              <p>Switch between site templates and customize the look and feel.</p>
+              <button className="clear-all-btn" style={{ fontSize: '0.8rem' }} onClick={() => navigate('/admin/themes')}>Manage Themes</button>
+            </div>
+            <div className="admin-card" style={{ background: 'var(--bg-color)', padding: '25px', borderRadius: '20px', border: '1px solid var(--accent-color)' }}>
+              <h3>🖥️ System Monitor</h3>
+              <p>Check the live status of all services, database, and API health.</p>
+              <button className="clear-all-btn" style={{ fontSize: '0.8rem' }} onClick={() => navigate('/admin/monitor')}>View Monitor</button>
+            </div>
           </div>
 
         </div>
