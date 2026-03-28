@@ -53,7 +53,7 @@ const Car = {
             params.push(maxYear);
         }
         if (condition) {
-            query += ' AND condition = ?';
+            query += ' AND \`condition\` = ?';
             params.push(condition);
         }
 
@@ -71,7 +71,7 @@ const Car = {
 
         const [result] = await db.query(
             `INSERT INTO cars 
-        (make, model, year, price, mileage, category, condition, color, transmission, fuel_type, engine, description, image_url, video_url) 
+        (make, model, year, price, mileage, category, \`condition\`, color, transmission, fuel_type, engine, description, image_url, video_url) 
        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
             [make, model, year, price, mileage, category, condition, color, transmission, fuel_type, engine, description, image_url, video_url]
         );
@@ -88,10 +88,10 @@ const Car = {
 
         await db.query(
             `UPDATE cars SET 
-        make=?, model=?, year=?, price=?, mileage=?, category=?, condition=?, 
-        color=?, transmission=?, fuel_type=?, engine=?, description=?, 
-        image_url=?, video_url=?
-       WHERE id = ?`,
+            make=?, model=?, year=?, price=?, mileage=?, category=?, \`condition\`=?, 
+            color=?, transmission=?, fuel_type=?, engine=?, description=?, 
+            image_url=?, video_url=?
+        WHERE id = ?`,
             [make, model, year, price, mileage, category, condition, color, transmission, fuel_type, engine, description, image_url, video_url, id]
         );
     },

@@ -41,18 +41,18 @@ const login = async (req, res) => {
 
   try {
     // Check if user exists
+    console.log('Login attempt:', email, password); // debug
+
     const user = await User.findByEmail(email);
+    console.log('User found:', user); // debug
+
     if (!user) {
       return res.status(400).json({ message: 'Invalid email or password' });
     }
 
-    // Check if account is active
-    if (!user.is_active) {
-      return res.status(403).json({ message: 'Account has been disabled' });
-    }
-
-    // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
+    console.log('Password match:', isMatch); // debug
+
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid email or password' });
     }

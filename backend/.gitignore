@@ -47,3 +47,7 @@ Thumbs.db
 *.zip
 *.tar.gz
 .cache/
+
+# --- TEST ---
+
+test-db.js
