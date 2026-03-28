@@ -54,7 +54,12 @@ function App() {
       />
 
       <main style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
-        <AppRouter setUser={setUser} user={user} /> 
+        <AppRouter 
+          setUser={setUser} 
+          user={user}
+          currentTheme={currentTheme}
+          setTheme={setCurrentTheme}
+        />
       </main>
 
       <Footer />
