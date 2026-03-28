@@ -20,6 +20,7 @@
   text-align: center;
 }
 
+
 .auth-card h2 {
   font-size: 2.2rem;
   margin-bottom: 12px;
@@ -43,7 +44,9 @@
   gap: 15px;
 }
 
+
 .auth-form input {
+
   background: rgba(0, 0, 0, 0.25); 
   border: 1px solid rgba(255, 255, 255, 0.08);
   padding: 16px;
@@ -67,6 +70,7 @@
   outline: none;
   background: rgba(0, 0, 0, 0.45);
   border-color: var(--accent-color);
+
   box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.15);
 }
 
@@ -113,12 +117,14 @@
   filter: brightness(1.2);
 }
 
+
 .auth-instruction, 
 .success-text {
     color: var(--text-color) !important;
     opacity: 0.9;
     line-height: 1.6;
 }
+
 
 .success-text strong {
     color: var(--accent-color);
@@ -134,4 +140,13 @@
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+.disabled-input {
+    opacity: 0.6;
+    cursor: not-allowed;
+    border: 1px dashed rgba(128,128,128,0.3) !important;
+}
+
+textarea:disabled {
+    background: transparent !important;
 }
