@@ -1,3 +1,6 @@
+CREATE DATABASE IF NOT EXISTS cardeals_db;
+USE cardeals_db;
+
 CREATE TABLE IF NOT EXISTS users (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
@@ -16,7 +19,7 @@ CREATE TABLE IF NOT EXISTS cars (
   price DECIMAL(10, 2) NOT NULL,
   mileage INT NOT NULL,
   category ENUM('sedan', 'suv', 'truck', 'electric', 'coupe', 'van') NOT NULL,
-  condition ENUM('new', 'used', 'featured') DEFAULT 'used',
+  tag ENUM('new', 'used', 'featured') DEFAULT 'used',
   color VARCHAR(50),
   transmission ENUM('automatic', 'manual') DEFAULT 'automatic',
   fuel_type ENUM('gasoline', 'diesel', 'electric', 'hybrid') DEFAULT 'gasoline',
@@ -28,14 +31,19 @@ CREATE TABLE IF NOT EXISTS cars (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-```
----
 
-**Flow summary:**
-
-Register  →  POST /api/auth/register  →  hash password → save to DB
-Login     →  POST /api/auth/login     →  compare password → return JWT
-Protected →  any private route        →  authMiddleware verifies JWT
-Admin     →  any admin route          →  adminMiddleware checks role
-
-```
+CREATE TABLE IF NOT EXISTS dealers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  address VARCHAR(255) NOT NULL,
+  city VARCHAR(100) NOT NULL,
+  province VARCHAR(100) NOT NULL,
+  postal_code VARCHAR(20) NOT NULL,
+  phone VARCHAR(20),
+  email VARCHAR(100),
+  latitude DECIMAL(10, 8) NOT NULL,
+  longitude DECIMAL(11, 8) NOT NULL,
+  hours VARCHAR(255),
+  is_active TINYINT(1) DEFAULT 1,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
