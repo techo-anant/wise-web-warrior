@@ -53,7 +53,7 @@ function Header({ currentTheme, setTheme, user }) {
       <div className="logo-area">
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           <h1 className="brand-name">
-            Wise <span className="hide-on-mobile">Web Warriors</span>
+            Sharp <span className="hide-on-mobile">Car Deals</span>
           </h1>
         </Link>
       </div>
