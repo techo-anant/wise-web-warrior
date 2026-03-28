@@ -63,6 +63,7 @@ function App() {
         <AppRouter 
           setUser={setUser} 
           user={user}
+          onLogout={handleLogout}
           currentTheme={currentTheme}
           setTheme={setCurrentTheme}
         />
