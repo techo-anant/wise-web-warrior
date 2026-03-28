@@ -63,7 +63,7 @@ const Login = ({ setUser }) => {
             required
           />
 
-          <div className="forgot-pw-container" style={{ textAlign: 'right', marginBottom: '15px' }}>
+          {/* <div className="forgot-pw-container" style={{ textAlign: 'right', marginBottom: '15px' }}>
             <Link to="/forgot-password" style={{
               fontSize: '0.85rem',
               color: 'var(--accent-color)',
@@ -73,7 +73,7 @@ const Login = ({ setUser }) => {
             }}>
               Forgot Password?
             </Link>
-          </div>
+          </div> --------------------------------------- temporarily removed the FORGOT PASSWORD feature ---------------------------------------*/}
 
           <button type="submit" className="auth-btn" disabled={loading}>
             {loading ? 'Logging in...' : 'Login'}
