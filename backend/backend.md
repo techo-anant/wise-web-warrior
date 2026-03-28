@@ -14,7 +14,7 @@
 | `authRoutes.js` | Endpoints for login, register, logout ✅|
 | `carRoutes.js` | Endpoints for car listing CRUD operations ✅|
 | `userRoutes.js` | Endpoints for user profile and admin user management ✅|
-| `dealerRoutes.js` | Endpoints for fetching dealership locations |
+| `dealerRoutes.js` | Endpoints for fetching dealership locations  ✅|
 | `monitorRoutes.js` | Endpoints for service and database health checks |
 
 ---
@@ -25,7 +25,7 @@
 | `authController.js` | Handles login logic, password hashing, JWT token generation ✅|
 | `carController.js` | Handles fetching, creating, updating, and deleting car records ✅|
 | `userController.js` | Handles profile updates, account disabling, role management ✅|
-| `dealerController.js` | Handles fetching dealer branch data and locations |
+| `dealerController.js` | Handles fetching dealer branch data and locations  ✅|
 | `monitorController.js` | Pings DB and services, returns online/offline status per service |
 
 ---
@@ -35,7 +35,7 @@
 |------|-------------|
 | `User.js` | SQL queries for user table — find, create, update, disable ✅|
 | `Car.js` | SQL queries for car table — find all, find one, insert, update, delete ✅|
-| `Dealer.js` | SQL queries for dealer table — find all locations, find by city |
+| `Dealer.js` | SQL queries for dealer table — find all locations, find by city  ✅|
 
 ---
 
