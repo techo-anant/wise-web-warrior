@@ -29,7 +29,7 @@ import UserManager from '../pages/admin/UserManager';
 import ThemeManager from '../pages/admin/ThemeManager';
 import Monitor from '../pages/admin/Monitor';
 
-// Help Pages
+// help Pages
 import HelpLoginRegister from '../pages/help/HelpLoginRegister';
 import HelpNavigating from '../pages/help/HelpNavigating';
 import HelpFilter from '../pages/help/HelpFilter';

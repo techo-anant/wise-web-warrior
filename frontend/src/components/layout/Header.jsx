@@ -93,7 +93,7 @@ function Header({ currentTheme, setTheme, user }) {
               <span className="welcome-text hide-on-mobile" style={{ fontSize: '0.9rem', fontWeight: '500' }}>
                 Hi, <strong>{user.name}</strong>
                 {user.role === 'admin' && (
-                  <span className="admin-badge-small">Admin</span>
+                  <span className="admin-badge-small"></span>
                 )}
               </span>
             </Link>
