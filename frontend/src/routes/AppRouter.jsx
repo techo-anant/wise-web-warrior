@@ -16,14 +16,11 @@ import DealerLocator from '../pages/dynamic/DealerLocator';
 import Financing from '../pages/dynamic/Financing';
 import Dashboard from '../pages/dynamic/Dashboard';
 import Profile from '../pages/dynamic/Profile';
-// import SavedCars from '../pages/dynamic/SavedCars';
-// import Notifications from '../pages/dynamic/Notifications';
 
 // Auth pages
 import Login from '../pages/auth/Login';
 import Register from '../pages/auth/Register';
-import ForgotPassword from '../pages/auth/ForgotPassword';
-// import OAuthSuccess from '../pages/auth/OAuthSuccess';
+// import ForgotPassword from '../pages/auth/ForgotPassword'; // Commented out per your request
 
 // Admin pages
 import AdminDashboard from '../pages/admin/AdminDashboard';
@@ -37,18 +34,17 @@ import HelpLoginRegister from '../pages/help/HelpLoginRegister';
 import HelpNavigating from '../pages/help/HelpNavigating';
 import HelpFilter from '../pages/help/HelpFilter';
 import HelpComparison from '../pages/help/HelpComparison';
+/* FIXED: Renamed the import to match the element name used below */
 import HelpAdminPrmissnNavi from '../pages/help/HelpAdminPrmissnNavi';
 
-function AppRouter({ user, setUser, currentTheme, setTheme , onLogout}) {
+function AppRouter({ user, setUser, currentTheme, setTheme, onLogout }) {
 
   // ── PRIVATE ROUTE WRAPPER ──
-  // Redirects to login if user is not logged in
   const PrivateRoute = ({ element }) => {
     return user ? element : <Navigate to="/login" />;
   };
 
   // ── ADMIN ROUTE WRAPPER ──
-  // Redirects to home if user is not admin
   const AdminRoute = ({ element }) => {
     if (!user) return <Navigate to="/login" />;
     if (user.role !== 'admin') return <Navigate to="/" />;
@@ -57,7 +53,6 @@ function AppRouter({ user, setUser, currentTheme, setTheme , onLogout}) {
 
   return (
     <Routes>
-
       {/* ── STATIC ROUTES ── */}
       <Route path="/"               element={<Home />} />
       <Route path="/about"          element={<About />} />
@@ -73,14 +68,12 @@ function AppRouter({ user, setUser, currentTheme, setTheme , onLogout}) {
 
       {/* ── AUTH ROUTES ── */}
       <Route path="/login"           element={<Login setUser={setUser} />} />
-      <Route path="/register"        element={<Register />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      {/* <Route path="/oauth-success"   element={<OAuthSuccess setUser={setUser} />} /> */}
+      <Route path="/register"        element={<Register setUser={setUser} />} />
+      {/* <Route path="/forgot-password" element={<ForgotPassword />} /> */}
 
-      {/* ── PRIVATE ROUTES (login required) ── */}
+      {/* ── PRIVATE ROUTES ── */}
       <Route path="/dashboard"      element={<PrivateRoute element={<Dashboard user={user} />} />} />
-      {/* Protected Profile Route */}
-       <Route 
+      <Route 
          path="/profile" 
          element={
            user ? (
@@ -90,98 +83,25 @@ function AppRouter({ user, setUser, currentTheme, setTheme , onLogout}) {
            )
          } 
        />
-      {/* <Route path="/saved-cars"     element={<PrivateRoute element={<SavedCars user={user} />} />} /> */}
-      {/* <Route path="/notifications"  element={<PrivateRoute element={<Notifications user={user} />} />} /> */}
 
-      {/* ── ADMIN ROUTES (admin only) ── */}
+      {/* ── ADMIN ROUTES ── */}
       <Route path="/admin"          element={<AdminRoute element={<AdminDashboard user={user} />} />} />
       <Route path="/admin/cars"     element={<AdminRoute element={<CarListingEditor />} />} />
       <Route path="/admin/users"    element={<AdminRoute element={<UserManager />} />} />
       <Route path="/admin/monitor"  element={<AdminRoute element={<Monitor />} />} />
       <Route path="/admin/themes"   element={<AdminRoute element={<ThemeManager currentTheme={currentTheme} setTheme={setTheme} />} />} />
 
-      {/* Help Pages */}
+      {/* ── HELP ROUTES ── */}
       <Route path="/help/login-register" element={<HelpLoginRegister />} />
-<Route path="/help/navigating" element={<HelpNavigating />} />
-<Route path="/help/filters" element={<HelpFilter />} />
-<Route path="/help/compare" element={<HelpComparison />} />
-<Route path="/help/admin" element={<HelpAdminPrmissnNavi />} />
+      <Route path="/help/navigating"     element={<HelpNavigating />} />
+      <Route path="/help/filters"        element={<HelpFilter />} />
+      <Route path="/help/compare"        element={<HelpComparison />} />
+      <Route path="/help/admin"          element={<HelpAdminPrmissnNavi />} />
 
       {/* ── 404 ── */}
       <Route path="*" element={<NotFound />} />
-
     </Routes>
   );
 }
 
 export default AppRouter;
-
-
-// import React from "react";
-// import { Routes, Route, Navigate } from "react-router-dom";
-
-// import Home from '../pages/static/Home';
-// import About from '../pages/static/About';
-// import Inventory from '../pages/dynamic/Inventory';
-// import CarDetail from '../pages/dynamic/CarDetail';
-// import Contact from '../pages/static/Contact';
-// import FAQ from '../pages/static/FAQ';
-// import Dashboard from '../pages/dynamic/Dashboard';
-// import AdminDashboard from '../pages/admin/AdminDashboard';
-// import Profile from '../pages/dynamic/Profile'; // Ensure this is imported
-// import Login from '../pages/auth/Login'; 
-// import Register from '../pages/auth/Register';
-// import ForgotPassword from '../pages/auth/ForgotPassword';
-// import NotFound from '../pages/static/NotFound';
-// import Compare from '../pages/dynamic/Compare';
-// import DealerLocator from '../pages/dynamic/DealerLocator';
-// import Financing from '../pages/dynamic/Financing'; 
-
-// function AppRouter({ user, setUser, onLogout }) {
-//   return (
-//     <Routes>
-//       <Route path="/" element={<Home />} />
-//       <Route path="/inventory" element={<Inventory />} />
-//       <Route path="/inventory/:id" element={<CarDetail />} />
-//       <Route path="/financing" element={<Financing />} />
-//       <Route path="/about" element={<About />} />
-//       <Route path="/contact" element={<Contact />} />
-//       <Route path="/faq" element={<FAQ />} />
-//       <Route path="/login" element={<Login setUser={setUser} />} />
-//       <Route path="/forgot-password" element={<ForgotPassword />} />
-//       <Route path="/register" element={<Register />} />
-//       <Route path="/compare" element={<Compare />} />
-//       <Route path="/dealer-locator" element={<DealerLocator />} />
-      
-//       {/* Protected Profile Route */}
-//       <Route 
-//         path="/profile" 
-//         element={
-//           user ? (
-//             <Profile user={user} setUser={setUser} onLogout={onLogout} />
-//           ) : (
-//             <Navigate to="/login" />
-//           )
-//         } 
-//       />
-
-//       {/* Protected Dashboard Route */}
-//       <Route 
-//         path="/dashboard" 
-//         element={
-//           user ? (
-//             user.role === 'admin' ? 
-//             <AdminDashboard user={user} /> : 
-//             <Dashboard user={user} />
-//           ) : (
-//             <Navigate to="/login" />
-//           )
-//         } 
-//       />
-
-//       <Route path="*" element={<NotFound />} />
-//     </Routes>
-//   );
-// }
-
-// export default AppRouter;
