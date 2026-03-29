@@ -9,7 +9,14 @@ const monitorRoutes = require('../routes/monitorRoutes');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: [
+        'https://wise-web-warrior.vercel.app',
+        'https://wise-web-warrior-git-main-techo-anants-projects.vercel.app',
+        'https://wise-web-warrior-qxchxgsng-techo-anants-projects.vercel.app',
+        'http://localhost:3000'
+    ]
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
