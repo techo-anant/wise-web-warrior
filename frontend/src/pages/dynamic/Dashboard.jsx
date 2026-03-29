@@ -97,7 +97,7 @@ const Dashboard = ({ user }) => {
               {featuredCars.map((car) => (
                 <div
                   key={car.id}
-                  onClick={() => navigate(`/cars/${car.id}`)}
+                  onClick={() => navigate(`/inventory/${car.id}`)}
                   style={{
                     background: 'rgba(var(--accent-rgb), 0.05)',
                     border: '1px solid rgba(var(--accent-rgb), 0.2)',
