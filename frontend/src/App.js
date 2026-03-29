@@ -1,31 +1,3 @@
-// import React from "react";
-// import AppRouter from "./routes/AppRouter";
-// import { CarProvider } from "./context/CarContext";
-
-// // Layout components
-// import Header from "./components/layout/Header";
-// import Footer from "./components/layout/Footer";
-
-// function App() {
-//   return (
-//     <CarProvider>
-//       <Header />
-
-//       <main>
-//         <AppRouter />
-//       </main>
-
-//       <Footer />
-//     </CarProvider>
-//   );
-// }
-
-// export default App;
-
-
-//earlier one above
-//new commit below
-
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './themes/theme-default.css';
