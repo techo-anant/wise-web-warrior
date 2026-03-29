@@ -1,178 +1,225 @@
-# How the project will look like
+# 🚗 SharpCar Deals
 
-```text
-/wise-web-warriors
-│
-├── /docs
-│   ├── /frontend                  # JSDoc generated docs
-│   ├── /admin                     # Admin documentation
-│   ├── /user                      # End-user how-to guide
-│   └── INSTALL.md                 # Installation instructions
-│
-├── /frontend                      # React App (Create React App)
-│   ├── /public
-│   │   ├── favicon.ico
-│   │   ├── robots.txt             # SEO
-│   │   └── sitemap.xml            # SEO
-│   │
-│   ├── /src
-│   │   ├── /assets
-│   │   │   ├── /images
-│   │   │   │   ├── /cars          # Car listing images
-│   │   │   │   ├── /banners       # Hero/promotional banners
-│   │   │   │   └── /logos
-│   │   │   ├── /videos
-│   │   │   │   └── /car-tours     # Car walkthrough videos
-│   │   │   └── /fonts
-│   │   │
-│   │   ├── /components
-│   │   │   ├── /layout
-│   │   │   │   ├── Header.jsx
-│   │   │   │   ├── Footer.jsx
-│   │   │   │   ├── Sidebar.jsx
-│   │   │   │   └── NavMenu.jsx        # Interactive menu
-│   │   │   ├── /ui
-│   │   │   │   ├── Button.jsx
-│   │   │   │   ├── Modal.jsx
-│   │   │   │   ├── SearchBar.jsx      # Search by make/model/year
-│   │   │   │   ├── FilterPanel.jsx    # Filter by price, mileage etc.
-│   │   │   │   ├── PriceRangeSlider.jsx
-│   │   │   │   └── ThemeSwitcher.jsx  # 3-theme switcher
-│   │   │   ├── /cars
-│   │   │   │   ├── CarCard.jsx        # Car listing card
-│   │   │   │   ├── CarGrid.jsx        # Grid of CarCards
-│   │   │   │   ├── CarImageGallery.jsx
-│   │   │   │   ├── CarSpecs.jsx       # Engine, mileage, year etc.
-│   │   │   │   ├── CarBadge.jsx       # New / Used / Featured
-│   │   │   │   └── CarComparison.jsx  # Side-by-side compare
-│   │   │   ├── /media
-│   │   │   │   ├── VideoPlayer.jsx    # Car tour videos
-│   │   │   │   └── ImageGallery.jsx
-│   │   │   ├── /map
-│   │   │   │   └── DealershipMap.jsx  # Leaflet.js dealership locator
-│   │   │   └── /charts
-│   │   │       ├── PriceHistoryChart.jsx   # Car price trends
-│   │   │       └── InventoryChart.jsx      # Stock by category
-│   │   │
-│   │   ├── /pages
-│   │   │   ├── /static              # ── STATIC PAGES (5+) ──
-│   │   │   │   ├── Home.jsx           # Hero + featured cars
-│   │   │   │   ├── About.jsx          # About the dealership
-│   │   │   │   ├── Contact.jsx        # Contact + dealership map
-│   │   │   │   ├── FAQ.jsx            # Buying/financing FAQ
-│   │   │   │   └── NotFound.jsx       # 404
-│   │   │   │
-│   │   │   ├── /dynamic             # ── DYNAMIC PAGES (10+) ──
-│   │   │   │   ├── Inventory.jsx      # All car listings (DB-driven)
-│   │   │   │   ├── CarDetail.jsx      # Single car + gallery + video
-│   │   │   │   ├── Search.jsx         # Search results
-│   │   │   │   ├── Compare.jsx        # Compare selected cars
-│   │   │   │   ├── Category.jsx       # SUV / Sedan / Truck etc.
-│   │   │   │   ├── DealerLocator.jsx  # Interactive map page
-│   │   │   │   ├── Financing.jsx      # Loan calculator (dynamic)
-│   │   │   │   ├── Dashboard.jsx      # User saved cars (private)
-│   │   │   │   ├── Profile.jsx        # User profile (private)
-│   │   │   │   ├── SavedCars.jsx      # Wishlist (private)
-│   │   │   │   └── Notifications.jsx  # Price drop alerts (private)
-│   │   │   │
-│   │   │   ├── /auth
-│   │   │   │   ├── Login.jsx
-│   │   │   │   ├── Register.jsx
-│   │   │   │   └── ForgotPassword.jsx
-│   │   │   │
-│   │   │   └── /admin               # ── ADMIN INTERFACE ──
-│   │   │       ├── AdminDashboard.jsx
-│   │   │       ├── CarListingEditor.jsx   # Add/edit/delete cars
-│   │   │       ├── UserManager.jsx        # Disable/manage accounts
-│   │   │       ├── ThemeManager.jsx       # Switch site templates
-│   │   │       └── Monitor.jsx            # Service status page
-│   │   │
-│   │   ├── /themes
-│   │   │   ├── theme-default.css    # Classic dealership look
-│   │   │   ├── theme-dark.css       # Dark/luxury feel
-│   │   │   └── theme-sport.css      # Bold/sporty red accent
-│   │   │
-│   │   ├── /context
-│   │   │   ├── AuthContext.jsx
-│   │   │   ├── ThemeContext.jsx
-│   │   │   └── CarContext.jsx       # Saved cars, compare list
-│   │   │
-│   │   ├── /hooks
-│   │   │   ├── useAuth.js
-│   │   │   ├── useFetch.js
-│   │   │   ├── useTheme.js
-│   │   │   └── useCarFilter.js      # Filter/sort car listings
-│   │   │
-│   │   ├── /services
-│   │   │   ├── api.js               # Axios base instance
-│   │   │   ├── authService.js
-│   │   │   ├── carService.js        # Car CRUD API calls
-│   │   │   └── userService.js
-│   │   │
-│   │   ├── /routes
-│   │   │   ├── AppRouter.jsx
-│   │   │   └── PrivateRoute.jsx
-│   │   │
-│   │   ├── /utils
-│   │   │   ├── seo.js               # Meta tags per car listing
-│   │   │   ├── formatCurrency.js    # Price formatting
-│   │   │   └── helpers.js
-│   │   │
-│   │   ├── /onboarding
-│   │   │   ├── TourGuide.jsx        # React Joyride site tour
-│   │   │   └── HowToGuide.jsx       # How to buy a car guide
-│   │   │
-│   │   ├── App.jsx
-│   │   ├── App.css
-│   │   └── index.js                 # CRA entry point
-│   │
-│   ├── .env
-│   └── package.json
-│
-├── /backend                         # Node.js + Express REST API
-│   ├── /config
-│   │   ├── db.js                    # MySQL connection (mysql2)
-│   │   └── app.js                   # Express app setup, CORS
-│   │
-│   ├── /routes
-│   │   ├── authRoutes.js
-│   │   ├── carRoutes.js             # Car listings CRUD
-│   │   ├── userRoutes.js
-│   │   ├── dealerRoutes.js          # Dealership locations
-│   │   └── monitorRoutes.js         # Health check endpoints
-│   │
-│   ├── /controllers
-│   │   ├── authController.js
-│   │   ├── carController.js
-│   │   ├── userController.js
-│   │   ├── dealerController.js
-│   │   └── monitorController.js
-│   │
-│   ├── /models
-│   │   ├── User.js
-│   │   ├── Car.js                   # make, model, year, price, mileage, status
-│   │   └── Dealer.js
-│   │
-│   ├── /middleware
-│   │   ├── authMiddleware.js        # JWT verification
-│   │   └── adminMiddleware.js       # Admin role check
-│   │
-│   ├── /utils
-│   │   └── helpers.js
-│   │
-│   ├── .env
-│   ├── server.js
-│   └── package.json
-│
-├── /database
-│   ├── schema.sql                   # users, cars, dealers tables
-│   ├── seed.sql                     # 20+ car records
-│   └── /migrations
-│       ├── 001_create_users.sql
-│       ├── 002_create_cars.sql
-│       └── 003_create_dealers.sql
-│
-├── .gitignore
-├── README.md
-└── INSTALL.md
+> A full-stack car dealership platform for browsing inventory, comparing vehicles, finding dealerships, and managing listings — built for the modern web.
+
+![SharpCar Deals Homepage](./frontend/public/homepage.png)
+
+---
+
+## 🌐 Live Demo
+
+**[https://wise-web-warrior.vercel.app](https://wise-web-warrior.vercel.app)**
+
+---
+
+## 🔐 Admin Access
+
+To explore the admin dashboard and management features:
+
+| Field    | Value                  |
+|----------|------------------------|
+| Email    | `admin@cardeals.com`   |
+| Password | `Admin@123`            |
+
+---
+
+## ✨ Features
+
+- 🔍 **Browse Inventory** — Filter cars by type: SUVs, Sedans, Trucks, Electric
+- ⚖️ **Compare Vehicles** — Side-by-side comparison of multiple cars
+- 📍 **Find Dealership** — Map-based dealership locator (Google Maps embed)
+- 👤 **User Profiles** — Manage personal info, address, and phone
+- 🛠️ **Admin Dashboard** — Full CRUD for inventory, users, and dealerships
+- 🌙 **Dark / Light Mode** — Theme toggle in the navbar
+- 🔐 **Authentication** — Login / Register with JWT-based auth
+- 📅 **Test Drive Booking** — Book a test drive directly from the listing
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+| Technology | Purpose |
+|---|---|
+| React (Create React App) | UI framework |
+| React Router DOM v6 | Client-side routing |
+| Axios | HTTP requests to backend |
+| CSS Modules / Custom CSS | Styling |
+| Google Maps iframe embed | Dealership map view |
+
+### Backend
+| Technology | Purpose |
+|---|---|
+| Node.js + Express | REST API server |
+| JWT | Authentication & authorization |
+| CORS | Cross-origin request handling |
+| dotenv | Environment variable management |
+
+### Database
+| Technology | Purpose |
+|---|---|
+| MySQL / PostgreSQL | Relational data storage |
+| Sequelize (or raw SQL) | ORM / query layer |
+
+### Deployment
+| Service | Role |
+|---|---|
+| Vercel | Frontend hosting |
+| Railway / Render | Backend hosting |
+| PlanetScale / Supabase | Managed database |
+
+---
+
+## 📁 Project Structure
+
 ```
+wise-web-warrior/
+├── frontend/               # React app (deployed to Vercel)
+│   ├── public/
+│   ├── src/
+│   │   ├── pages/
+│   │   │   ├── static/     # Home, About, FAQ, Contact
+│   │   │   └── dynamic/    # Inventory, Profile, Compare, Dealership
+│   │   ├── components/     # Navbar, Footer, Cards, etc.
+│   │   ├── api/            # Axios instance & API calls
+│   │   └── App.js
+│   └── package.json
+│
+├── backend/                # Express REST API
+│   ├── routes/
+│   ├── controllers/
+│   ├── middleware/         # Auth, error handling
+│   ├── models/
+│   └── package.json
+│
+├── database/               # SQL schema / migrations
+├── .gitignore
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started (Local Development)
+
+### Prerequisites
+- Node.js v18+
+- npm or yarn
+- MySQL or PostgreSQL running locally
+
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/techo-anant/wise-web-warrior.git
+cd wise-web-warrior
+```
+
+### 2. Set up the backend
+
+```bash
+cd backend
+npm install
+```
+
+Create a `.env` file in `/backend`:
+
+```env
+PORT=5000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=yourpassword
+DB_NAME=cardeals
+JWT_SECRET=your_jwt_secret
+```
+
+```bash
+npm start
+```
+
+### 3. Set up the frontend
+
+```bash
+cd frontend
+npm install
+```
+
+Create a `.env.local` file in `/frontend`:
+
+```env
+REACT_APP_API_URL=http://localhost:5000
+```
+
+```bash
+npm start
+```
+
+App runs at **http://localhost:3000**
+
+---
+
+## 🌍 Deployment
+
+### Frontend → Vercel
+
+1. Push `frontend/` to GitHub
+2. Import project on [vercel.com](https://vercel.com)
+3. Set **Root Directory** to `frontend`
+4. Add environment variable:
+   ```
+   REACT_APP_API_URL = https://your-backend-url.com
+   ```
+5. Deploy ✅
+
+### Backend → Railway / Render
+
+1. Deploy the `backend/` folder
+2. Add all `.env` variables in the platform dashboard
+3. Copy the live URL and update `REACT_APP_API_URL` on Vercel
+
+---
+
+## 🔒 CORS Configuration
+
+The backend allows requests from the following origins:
+
+```js
+origin: [
+  'https://wise-web-warrior.vercel.app',
+  'https://wise-web-warrior-git-main-techo-anants-projects.vercel.app',
+  'https://wise-web-warrior-qxchxgsng-techo-anants-projects.vercel.app',
+  'http://localhost:3000'
+]
+```
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home](https://wise-web-warrior.vercel.app/dashboard)
+
+### 🚘 Inventory
+Browse and filter the full vehicle catalog.
+
+### ⚖️ Compare
+Select multiple vehicles and compare specs side by side.
+
+### 📍 Find Dealership
+View dealership locations on an interactive map.
+
+---
+
+## 👨‍💻 Author
+
+**Anant Kumar Singh** — [@techo-anant](https://github.com/techo-anant)
+
+**Inderpreet Singh Saini** -[@Inderpreetsinghsaini](https://github.com/Inderpreetsinghsaini)
+
+**Xinlong Yan** — [@ColeoYan](https://github.com/ColeoYan)
+
+**Steven Hyde** — [@shyde6](https://github.com/shyde6)
+
+---
+
+## 📄 License
+
+This project is for educational and demonstration purposes.
