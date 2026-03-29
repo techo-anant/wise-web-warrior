@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import './themes/theme-default.css';
 import './themes/theme-dark.css';
 import './themes/theme-sport.css';
@@ -6,42 +6,54 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import AppRouter from './routes/AppRouter';
 
-
 function App() {
-  const [currentTheme, setCurrentTheme] = useState(
-    localStorage.getItem('saved-theme') || 'default'
-  );
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
-  useEffect(() => {
-    localStorage.setItem('saved-theme', currentTheme);
-  }, [currentTheme]);
+    const [currentTheme, setCurrentTheme] = useState(
+        localStorage.getItem('saved-theme') || 'default'
+    );
+    const [user, setUser] = useState(
+        JSON.parse(localStorage.getItem('user')) || null
+    );
 
-  const handleLogout = () => {
-    localStorage.removeItem('user');
-    setUser(null);
-  };
+    // Store theme in a ref so ThemeManager can read it without causing re-renders
+    const themeRef = useRef(currentTheme);
 
-  return (
-    <div className="App" data-theme={currentTheme}>
-      <Header
-        currentTheme={currentTheme}
-        setTheme={setCurrentTheme}
-        user={user}
-        onLogout={handleLogout}
-      />
+    // Apply theme directly to DOM — no re-render needed
+    const handleThemeChange = (theme) => {
+        themeRef.current = theme;
+        document.getElementById('app-root').setAttribute('data-theme', theme);
+        localStorage.setItem('saved-theme', theme);
+        setCurrentTheme(theme); // only needed for Header to show active theme
+    };
 
-      <main style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
-        <AppRouter
-          setUser={setUser}
-          user={user}
-          onLogout={handleLogout}
-          currentTheme={currentTheme}
-          setTheme={setCurrentTheme}
-        />
-      </main>
+    const handleLogout = () => {
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        setUser(null);
+    };
 
-      <Footer />
-    </div>
-  );
+    return (
+        <div id="app-root" className="App" data-theme={currentTheme}>
+            <Header
+                currentTheme={currentTheme}
+                setTheme={handleThemeChange}
+                user={user}
+                onLogout={handleLogout}
+            />
+
+            <main style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
+                {/* Only pass user props — NOT currentTheme so theme changes don't re-render router */}
+                <AppRouter
+                    setUser={setUser}
+                    user={user}
+                    onLogout={handleLogout}
+                    currentTheme={currentTheme}
+                    setTheme={handleThemeChange}
+                />
+            </main>
+
+            <Footer />
+        </div>
+    );
 }
+
 export default App;

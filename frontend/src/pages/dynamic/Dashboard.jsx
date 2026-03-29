@@ -128,13 +128,13 @@
 //
 // export default Dashboard;
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { getProfile } from '../../services/userService';
 import { getAllCars } from '../../services/carService';
 import './Auth.css';
 
-const Dashboard = ({ user }) => {
+const Dashboard = memo (({ user }) => {
     const [profile, setProfile] = useState(null);
     const [featuredCars, setFeaturedCars] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -276,6 +276,6 @@ const Dashboard = ({ user }) => {
             </div>
         </div>
     );
-};
+});
 
 export default Dashboard;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {memo} from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 // Static pages
@@ -38,11 +38,11 @@ import HelpComparison from '../pages/help/HelpComparison';
 /* FIXED: Renamed the import to match the element name used below */
 import HelpAdminPrmissnNavi from '../pages/help/HelpAdminPrmissnNavi';
 
-function AppRouter({ user, setUser, currentTheme, setTheme, onLogout }) {
+const AppRouter = memo(({ user, setUser, currentTheme, setTheme, onLogout }) => {
 
   // ── PRIVATE ROUTE WRAPPER ──
   const PrivateRoute = ({ element }) => {
-    return user ? element : <Navigate to="/login" />;
+    return user? element : <Navigate to="/login" />;
   };
 
   // ── ADMIN ROUTE WRAPPER ──
@@ -106,6 +106,6 @@ function AppRouter({ user, setUser, currentTheme, setTheme, onLogout }) {
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
-}
+});
 
 export default AppRouter;
