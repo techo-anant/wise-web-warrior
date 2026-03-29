@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import './themes/theme-default.css';
 import './themes/theme-dark.css';
 import './themes/theme-sport.css';
@@ -24,16 +23,16 @@ function App() {
 
   return (
     <div className="App" data-theme={currentTheme}>
-      <Header 
-        currentTheme={currentTheme} 
-        setTheme={setCurrentTheme} 
-        user={user} 
-        onLogout={handleLogout} 
+      <Header
+        currentTheme={currentTheme}
+        setTheme={setCurrentTheme}
+        user={user}
+        onLogout={handleLogout}
       />
 
       <main style={{ minHeight: '80vh', display: 'flex', flexDirection: 'column' }}>
-        <AppRouter 
-          setUser={setUser} 
+        <AppRouter
+          setUser={setUser}
           user={user}
           onLogout={handleLogout}
           currentTheme={currentTheme}

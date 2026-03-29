@@ -230,7 +230,7 @@ function Inventory() {
         } finally {
             setLoading(false);
         }
-    }, [filters, searchTerm, page]);
+    }, [filters, searchTerm, page, nextYear]);
 
     // Fetch on mount and when dependencies change
     useEffect(() => {

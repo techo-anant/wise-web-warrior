@@ -198,7 +198,7 @@ const Profile = ({ user, setUser, onLogout }) => {
             }
         };
         fetchProfile();
-    }, []);
+    }, [user?.address, user?.phone]);
 
     const handleChange = (e) => {
         setProfileData({ ...profileData, [e.target.name]: e.target.value });
