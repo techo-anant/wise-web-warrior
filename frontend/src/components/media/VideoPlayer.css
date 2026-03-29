@@ -1,0 +1,37 @@
+.video-player-container {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Keeps the standard widescreen shape */
+  overflow: hidden;
+  border-radius: 10px;
+  background: #000; /* Keeps the background black if the video ratio is slightly off */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.google-drive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Reset to 100% so nothing is cut off */
+  height: 100%; /* Reset to 100% */
+  border: none;
+  /* Removed the scale and transform that was causing the cropping */
+}
+
+.video-caption {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--accent-color);
+  text-align: center;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
