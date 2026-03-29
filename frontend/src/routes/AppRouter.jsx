@@ -16,6 +16,7 @@ import DealerLocator from '../pages/dynamic/DealerLocator';
 import Financing from '../pages/dynamic/Financing';
 import Dashboard from '../pages/dynamic/Dashboard';
 import Profile from '../pages/dynamic/Profile';
+import SavedCars from '../pages/dynamic/SavedCars';
 
 // Auth pages
 import Login from '../pages/auth/Login';
@@ -65,6 +66,9 @@ function AppRouter({ user, setUser, currentTheme, setTheme, onLogout }) {
       <Route path="/compare"        element={<Compare />} />
       <Route path="/dealer-locator" element={<DealerLocator />} />
       <Route path="/financing"      element={<Financing />} />
+        <Route path="/saved-cars" element={
+            <PrivateRoute user={user} element={<SavedCars user={user} />} />
+        } />
 
       {/* ── AUTH ROUTES ── */}
       <Route path="/login"           element={<Login setUser={setUser} />} />

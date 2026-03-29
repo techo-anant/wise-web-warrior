@@ -171,7 +171,7 @@ const Dashboard = ({ user }) => {
     return (
         <div className="compare-page">
             <header className="compare-header">
-                <h1>User <span>Dashboard</span></h1>
+                <h1>{profile?.role === 'admin' ? 'Admin' : 'User'} <span>Dashboard</span></h1>
                 <p>Welcome back, <strong>{profile?.name}</strong>! Here is your profile overview.</p>
             </header>
 
@@ -201,9 +201,11 @@ const Dashboard = ({ user }) => {
                         <div style={statCard}>
                             <h4 style={{ color: 'var(--accent-color)', margin: '0 0 10px 0' }}>Member Since</h4>
                             <p style={{ fontSize: '1rem', fontWeight: '600', margin: 0 }}>
-                                {new Date(profile?.created_at).toLocaleDateString('en-CA', {
-                                    year: 'numeric', month: 'long', day: 'numeric',
-                                })}
+                                {profile?.created_at
+                                    ? new Date(profile.created_at).toLocaleDateString('en-CA', {
+                                        year: 'numeric', month: 'long', day: 'numeric',
+                                    })
+                                    : 'N/A'}
                             </p>
                         </div>
 
